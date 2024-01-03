@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Livia Lima" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>PROXY SQUID - ASA: Serviços para 2º bimestre</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "PROXY SQUID";
+        var mkdocs_page_input_path = "proxy\\index.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> ASA: Serviços para 2º bimestre
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Serviços para o 2º bimestre</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Dhcp</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../dhcp/">DHCP</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Dns</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../dns/">DNS</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Ldap</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../ldap/">LDAP</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Proxy</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">PROXY SQUID</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#instalacao">Instalação</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#configuracao">Configuração</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#teste">Teste</a>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Smb</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../smb/">SAMBA</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">ASA: Serviços para 2º bimestre</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Proxy</li>
+      <li class="breadcrumb-item active">PROXY SQUID</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="proxy-squid">PROXY SQUID</h1>
+<p><b> O QUE É O PROXY SQUID? </b></p>
+<p>É um servidor de proxy open source amplamente no Linux.
+Muito importante para a função de armazenamento em cache do conteúdo da web acessado pelos usuários.</p>
+<p><img alt="Alt text" src="servidor-proxy.png" /></p>
+<p><b> OBS: </b> Os proxies podem usar ACLs para controlar o acesso a recursos internos da rede, como servidores, pastas ou arquivos.</p>
+<p><B> MAS O QUE É ACL? </B></p>
+<p><B> ACL: </B> <I> LISTA DE CONTROLE DE ACESSO </I></p>
+<p>Ou seja, São listas de regras que definem quais clientes podem acessar quais recursos. </p>
+<p>Por exemplo, uma empresa pode usar um <I> <U> proxy</U></I> para bloquear o acesso a sites de redes sociais ou de streaming de vídeo. Para isso, a empresa criaria uma <I> <U> ACL</U></I> que bloqueia as URLs desses sites.</p>
+<h2 id="instalacao">Instalação</h2>
+<p>Para instalar o squid no linux utilizamos o comando:</p>
+<p><code>apt install squid</code></p>
+<p><B> OBS: </B> Para atualizar o sistema digite:
+<code>sudo apt update</code></p>
+<p>Por vezes o squid nega o acesso quando é instalado, então vamos precisar desabilitar: </p>
+<p><code>/etc/squid/squid.conf</code></p>
+<p>Para isso, identifique uma linha que diz: </p>
+<p><i> http access deny all </i></p>
+<p>e substitua a palavra deny por allow.
+Dessa forma:</p>
+<p><i> http access allow all </i></p>
+<p><b> Traduzindo: </b></p>
+<p>DENY: negar</p>
+<p>ALLOW: permitir</p>
+<h2 id="configuracao">Configuração</h2>
+<p>No ato da instalação foi criado o arquivo diretório chamado:</p>
+<p>debian.conf </p>
+<p>(esse nome pode variar, mas estou se referindo ao meu diretório)</p>
+<ul>
+<li>No 'debian.conf' será adicionado nossa ACL:</li>
+</ul>
+<p><code>acl NOME_DA_ACL TIPO_DA_ACL parâmetro</code></p>
+<p><b> AGORA VAMOS VER ALGUNS TIPOS DE ACL:</b> </p>
+<ul>
+<li><b> dst </b> = O destino pode um host,rede ou domínio.</li>
+</ul>
+<p>ex: </b> acl exemplo dst www.facebook.com</p>
+<p>exemplo foi o NOME_DA_ACL</p>
+<p>dst foi o TIPO_DA_ACL</p>
+<ul>
+<li><b> url </b> = Especifica o URL de uma solicitação HTTP. </li>
+</ul>
+<p>O URL pode ser um URL completo ou um prefixo de URL.</p>
+<p>Por exemplo, para bloquear uma palavra usando a ACL tipo URL. Podendo usar a diretiva url_regex para especificar a palavra ou frase que deseja bloquear.</p>
+<p>Imagine a situação que os pais querem bloquear no computador do seu filho toda a palavra "sexo", nesse caso, é só criar a seguinte ACL:</p>
+<p><code>acl block_sexo url_regex "sexo"</code></p>
+<ul>
+<li><b> port </b> = O parâmetro será uma porta ex: 3128</li>
+</ul>
+<p>Para alterar a porta do Squid, localize a linha 
+<code>http_port 3128</code>
+no arquivo de configuração. Altere o número da porta para o número que você deseja usar.</p>
+<p><b> OBSERVAÇÃO: </b></p>
+<p>Depois de adicionar a ACL ao arquivo de configuração, você precisará reiniciar o Squid para que as alterações tenham efeito. </p>
+<p>Para reiniciar o Squid, execute o seguinte comando:</p>
+<p><code>sudo systemctl restart squid</code></p>
+<p>Ainda sobre os aquivos de configuração, 
+é importante saber alguns comando para:</p>
+<ul>
+<li>habilitar </li>
+</ul>
+<p><code>sudo service squid enable</code></p>
+<ul>
+<li>desabilitar</li>
+</ul>
+<p><code>sudo service squid disable</code></p>
+<ul>
+<li>iniciar</li>
+</ul>
+<p><code>sudo service squid start</code></p>
+<ul>
+<li>parar </li>
+</ul>
+<p><code>sudo service squid stop</code></p>
+<ul>
+<li>testar</li>
+</ul>
+<p><code>curl http://localhost:3128</code></p>
+<ul>
+<li>recarregar </li>
+</ul>
+<p><code>sudo service squid reload</code></p>
+<p><B> VEJA TAMBÉM: </B></p>
+<p><B> Como acompanhar os logs (registro) de acesso: </B></p>
+<ul>
+<li><code>tail -n 200 /var/squid/logs/access.log</code> </li>
+</ul>
+<p>pois através do tail ele permite visualizar as últimas linhas de um arquivo. </p>
+<h2 id="teste">Teste</h2>
+<p><b> 4 ACLS QUE FOI CONFIGURADA EM SALA DE AULA: </b></p>
+<p><img alt="Alt text" src="Capturar.PNG" /></p>
+<ol>
+<li><b> acl bloqueio dstdomain .youtube.com .facebook.com .gov.com .suap.com </b></li>
+</ol>
+<p>http_access deny site </p>
+<p>(acl tipo dst)
+portanto, bloqueamos o acesso a esses sites pelo proxy squid. </p>
+<ol>
+<li><b> acl protocolo src 52.95.188.10 </b></li>
+</ol>
+<p>http_access deny protocolo</p>
+<p>acl do tipo src.</p>
+<p>Ou seja, a ACL "protocolo" identifica o tráfego proveniente do endereço IP 52.95.188.10.</p>
+<p>A regra http_access deny protocolo bloqueia todo o tráfego HTTP proveniente desse endereço IP.</p>
+<p>Na prática, pode ser uma medida de segurança para bloquear tráfego malicioso ou indesejado.</p>
+<ol>
+<li><b> acl tempo time MTWHF 05:00-22:00</b></li>
+</ol>
+<p>http_access allow tempo</p>
+<p>Nesse caso, o tipo da acl é tempo.</p>
+<p>E foi adicionado as seguintes informações no comando acima: </p>
+<ul>
+<li>
+<p><b>Nome:</b> tempo</p>
+</li>
+<li>
+<p><b>Tipo:</b> time (tempo)</p>
+</li>
+<li>
+<p><b>Dias da semana:</b> MTWHF (segunda a sexta)</p>
+</li>
+<li>
+<p><b>Horário:</b> 05:00-22:00</p>
+</li>
+</ul>
+<p>Essa ACL permite acesso somente nos dias de segunda a sexta, entre as 5h da manhã e as 22h da noite.</p>
+<ol>
+<li><b> acl site browser Firefox </b></li>
+</ol>
+<p>http_access deny bloqueio</p>
+<p>Essa ACL identifica requisições que são feitas especificamente pelo navegador Firefox.</p>
+<p>A ACL bloqueia o acesso a todos os sites, independentemente da URL, quando acessados pelo Firefox.</p>
+<p>Lembrando que a regra não afeta o acesso por outros navegadores, como Chrome, Edge, etc.</p>
+<p><B> FEITO O TESTE TENTANDO ACESSAR O FIREFOX:</B></p>
+<p><img alt="Alt text" src="Captura%20de%20tela%202024-01-03%20024705.png" /></p>
+<p>E como vocês podem ver apareceu a seguinte mensagem:</p>
+<p><i> The proxy server is refusing connections </i></p>
+<p>Que em português significa:</p>
+<p><i> O servidor proxy está recusando conexões </i></p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../ldap/" class="btn btn-neutral float-left" title="LDAP"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../smb/" class="btn btn-neutral float-right" title="SAMBA">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../ldap/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../smb/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
