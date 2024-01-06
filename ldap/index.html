@@ -101,7 +101,11 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="ldap">LDAP</h1>
+<p><b>Quando utilizar o LDAP?</b></p>
+<p>O LDAP é usado para armazenar e gerenciar dados sobre pessoas, organizações e outros recursos. Esses dados podem incluir nomes, endereços de e-mail, números de telefone, funções, grupos de usuários e muito mais.</p>
 <h2 id="instalacao">Instalação</h2>
+<p>Integramos o LDAP com o Samba.
+Portanto, permitiu que os usuários sejam autenticados e autorizados usando um servidor LDAP.</p>
 <h2 id="configuracao">Configuração</h2>
 <p>Incluir o(s) nome(s) e o conteúdo do(s) arquivo(s) de configuração.</p>
 <ul>
@@ -110,6 +114,19 @@
 <li>Mover os grupo <code>sobrenome2</code> e seus membros para a OU <code>rh</code>.</li>
 </ul>
 <h2 id="teste">Teste</h2>
+<p>Criação da Organizational Unit, que sifnifica Unidade Organizacional, mas para facilar vamos chamar pela sigla "OU".</p>
+<ol>
+<li>Criamos as OU por nome: vendedores" e "rh":</li>
+</ol>
+<p><img alt="Alt text" src="image.png" /></p>
+<ol>
+<li>Em seguida movi o sobrenome <b>silva</b> para OU rh:</li>
+</ol>
+<p><img alt="Alt text" src="image-1.png" /></p>
+<ol>
+<li>Em seguida movi o sobrenome <b>lima</b> para OU vendedores:</li>
+</ol>
+<p><img alt="Alt text" src="image-2.png" /></p>
               
             </div>
           </div><footer>

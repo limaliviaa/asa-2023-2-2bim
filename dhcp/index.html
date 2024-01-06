@@ -101,11 +101,12 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="dhcp">DHCP</h1>
+<p><b>O que é DHCP e quando utilizar:</b></p>
 <p>O DHCP simplifica a configuração de dispositivos em redes e ajuda a garantir que todos os dispositivos tenham as informações de configuração necessárias para se comunicar com outros dispositivos na rede.</p>
 <h2 id="instalacao">Instalação</h2>
 <p>Para instalação do DNSMASQ em uma máquina linux basta digitar o comando:</p>
 <p><code>apk add dnsmasq</code></p>
-<p>para ver o estado do serviço:</p>
+<p>para ver o <b>estado</b> do serviço:</p>
 <p><code>service dnsmasq status</code></p>
 <h2 id="configuracao">Configuração</h2>
 <p>Para configurar, criamos um arquivo <b> (asa.conf) </b> no diretório <b>(dnsmasq.d)</b>.</p>
@@ -115,19 +116,22 @@
 (ip inicial, ip final, máscara de rede, tempo que o dispositivo fica com o ip)</p>
 <p>dhcp-range=10.0.19.10,10.0.19.100,255.255.255.0,12h</p>
 <p><b> Definiçao do DNS </b></p>
-<p>dhcp-option=3, 10.00.19.254</p>
+<p>dhcp-option=3, 10.0.0.19.254</p>
 <p><b> DNS Google </b>(opcional)</p>
 <p>dhcp-option=6,8.8.8.8 </p>
 <p><b> Definição do domínio</b> (opcional)</p>
 <p>dhcp-option=15,pernambuco.lab</p>
 <p><b>Local do LOG</b> </p>
 <p>log-facility=/var/log/dnsmasq.log</p>
-<p>Incluir o(s) nome(s) e o conteúdo do(s) arquivo(s) de configuração.</p>
-<ul>
-<li>Distribuir um intervalo (<em>range</em> em inglês) de endereços IP; (15 pontos)</li>
-<li>Reservar 2 endereços (IP fixo) fora do intervalo do item anterior. (5 pontos)</li>
-</ul>
+<p><b> OBSERVAÇÃO: </b> </p>
+<p><code>rc-service dnsmasq start</code> para <b> iniciar </b>  o serviço</p>
+<p><code>rc-service dnsmasq stop</code> para <b> parar </b>  o serviço </p>
 <h2 id="teste">Teste</h2>
+<p>Em seguida segue a imagem da configuração do <b>servidor</b>:</p>
+<p><img alt="Alt text" src="conf%20xarope.png" /></p>
+<p>Configuração dos clientes:</p>
+<p><img alt="Alt text" src="58f4d50d-2036-4db4-bcc8-d29bdc31c3c1.png" /></p>
+<p><img alt="Alt text" src="maq%20windxp.png" /> <img alt="Alt text" src="maq%20wid7.png" /></p>
               
             </div>
           </div><footer>

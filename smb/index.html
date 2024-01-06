@@ -108,37 +108,25 @@
 <p><B> - Controle de acesso: </B> o Samba permite controlar o acesso a recursos de rede. Os administradores de rede podem criar grupos de usuários e definir as permissões de acesso para cada grupo.</p>
 <h2 id="instalacao">Instalação</h2>
 <p>Para iniciar a instalação vamos primeiramente atualizar o sistema, através do comando: </p>
-<p><code>sudo apt install samba</code></p>
+<p><code>apk add samba</code></p>
 <p>Após ter instalado o samba será iniciado automaticamente.</p>
 <p>Para verificar se ele está em execução, digite:</p>
-<p><code>sudo systemctl status samba</code></p>
-<p>Se estiver executando a saída desse comando será semelhante a esta:</p>
-<pre><code>smbd.service - Samba SMB daemon
-
- Loaded: loaded (/lib/systemd/system/smbd.service; enabled; vendor preset: enabled)
- Active: active (running) since Tue 2023-12-30 21:00:19 -03; 5min 36s ago
- Main PID: 2078 (smbd)
-  Tasks: 10 (limit: 1229)
- Memory: 3.3M
-  CPU: 3.8%
- CGroup: /system.slice/smbd.service
-         └─2078 /usr/sbin/smbd -D```
-</code></pre>
+<p><code>rc-service samba status</code></p>
 <h2 id="configuracao">Configuração</h2>
-<p>Para configurar o Samba, edite o arquivo de configuração 
-<code>smb.conf.</code> </p>
-<p>Este arquivo está localizado no diretório /etc/samba/</p>
-<p>Após fazer as alterações no arquivo smb.conf, salve o arquivo e reinicie o serviço Samba:</p>
-<p><code>sudo systemctl restart smbd</code></p>
-<p>Depois que o serviço Samba for reiniciado, os clientes poderão acessar as pastas compartilhadas.</p>
+<p>Incluir o(s) nome(s) e o conteúdo do(s) arquivo(s) de configuração.</p>
+<p>Criar 2 grupos para dois de seus sobrenomes;
+Criar 4 usuários, dois para cada um dos sobrenomes;
+Compartilhar duas pastas com dois de seus sobrenome, compartilhado para o grupo com o sobrenome correspondente.</p>
 <h2 id="atividade-realizada-em-sala-de-aula-teste">Atividade realizada em sala de aula - teste</h2>
-<p><B> Incluir o(s) nome(s) e o conteúdo do(s) arquivo(s) de configuração. </B></p>
-<p><B> 1. </B>Criar 2 grupos para dois de seus sobrenomes;</p>
-<p>IMAGEM AQUI</p>
-<p><B> 2. </B>Criar 4 usuários, dois para cada um dos sobrenomes;</p>
-<p>IMAGEM AQUI</p>
-<p><B> 3. </B>Compartilhar duas pastas com dois de seus sobrenome, compartilhado para o grupo com o sobrenome correspondente.</p>
-<p>IMAGEM AQUI</p>
+<p>Configuração do arquivo /etc/samba/smb.conf:</p>
+<p><img alt="Alt text" src="image-2.png" /></p>
+<p>Grupos e usuários:</p>
+<p><img alt="Alt text" src="usu%C3%A1rios-1.png" /></p>
+<p><img alt="Alt text" src="image.png" /></p>
+<p><img alt="Alt text" src="image-1.png" /></p>
+<p>Configuração do domínio:</p>
+<p><img alt="Alt text" src="bd17df29-cdda-44ca-a6b6-8151b0653518.png" /></p>
+<p><img alt="Alt text" src="c72bffe4-0b68-48fa-9181-5ba598434313.png" /></p>
               
             </div>
           </div><footer>
